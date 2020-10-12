@@ -10,3 +10,15 @@ services:
       - NODE_ENV=development
       - PORT=3000
     command: sh -c 'npm i && node server.js'
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+
+  mongo-express:
+    image: mongo-express
+    ports:
+      - 8081:8081
